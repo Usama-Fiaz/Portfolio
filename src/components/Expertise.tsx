@@ -126,17 +126,17 @@ const skills = [
   {
     title: "Languages",
     icon: faCode,
-    labels: ["JavaScript", "TypeScript", "React", "Python", "PHP", "HTML", "CSS", "C++", "Java"],
+    labels: ["JavaScript", "TypeScript", "Python", "PHP", "HTML", "C++", "Java"],
   },
   {
     title: "Front-End",
     icon: faReact,
-    labels: ["ReactJS", "Next.js", "Bootstrap", "TailwindCSS", "SCSS", "MaterialUI (MUI)"],
+    labels: ["ReactJS", "Next.js", "Bootstrap", "TailwindCSS", "SCSS", "CSS", "MaterialUI (MUI)"],
   },
   {
     title: "Back-End",
     icon: faNodeJs,
-    labels: ["Node.js", "Express.js", "REST APIs", "PHP", "GraphQL"],
+    labels: ["Node.js", "Express.js", "REST APIs", "GraphQL"],
   },
   {
     title: "State Management",
