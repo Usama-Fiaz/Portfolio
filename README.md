@@ -62,7 +62,7 @@ You can choose your preferred service (e.g., [Netlify](https://www.netlify.com/)
 
     ```json
     {
-        "homepage": "https://Usama-Fiaz.github.io/Portfolio",
+        "homepage": "https://Usama-Fiaz.github.io/Portfolio/",
         "scripts": {
             "predeploy": "npm run build",
             "deploy": "gh-pages -d build",
