@@ -36,8 +36,8 @@ function Main() {
             <CustomTooltip title="https://github.com/Usama-Fiaz" arrow>
               <a href="https://github.com/Usama-Fiaz?tab=repositories" target="_blank" rel="noreferrer"><GitHubIcon /></a>
             </CustomTooltip>
-            <CustomTooltip title="https://www.linkedin.com/in/usamafiaz/" arrow>
-              <a href="https://www.linkedin.com/in/usamafiaz/" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
+            <CustomTooltip title="https://www.linkedin.com/in/muhammad-usama-fiaz-777961365/" arrow>
+              <a href="https://www.linkedin.com/in/muhammad-usama-fiaz-777961365/" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
             </CustomTooltip>
             <CustomTooltip title="+49-160-96-512513" arrow>
               <a href="tel:+4916096512513" target="_blank" rel="noreferrer" style={{ alignItems: 'center' }}>
