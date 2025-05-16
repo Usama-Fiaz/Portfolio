@@ -136,7 +136,7 @@ const skills = [
   {
     title: "Back-End",
     icon: faNodeJs,
-    labels: ["Node.js", "Express.js", "REST APIs", "GraphQL"],
+    labels: ["Node.js", "Express.js", "Django Rest Framework", "REST APIs", "GraphQL"],
   },
   {
     title: "State Management",
