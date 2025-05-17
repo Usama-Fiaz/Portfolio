@@ -1,3 +1,19 @@
+// .chip {
+//     border-radius: 50px !important; // makes it pill-shaped
+//     background-color: #e0f2ff !important; // default background
+//     color: #fff !important; // default text color
+//     font-weight: 500;
+//     margin: 4px;
+  
+//     &:hover {
+//       background-color: #0077b6 !important; // hover background
+//       color: #ffffff !important; // hover text color
+//       transform: scale(1.05);
+//       transition: all 0.2s ease-in-out;
+//     }
+//   }
+  
+
 .skills-container {
     padding: 5% 10%;
     display: flex;
@@ -21,14 +37,14 @@
 }
   
 .chip {
-    color: rgb(39, 40, 34) !important;
-    background-color: white !important;
+    color: #fff !important;
+    background-color: #8E10B9 !important;
     font-size: 0.8rem !important;
     height: 25px !important;
   
     span {
         font-family: 'Courier Prime', monospace;
-        color: rgb(39, 40, 34);
+        color: #fff;
     }
   
     svg {

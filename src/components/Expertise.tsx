@@ -194,7 +194,7 @@ function Expertise() {
           {skills.map((skill, index) => (
             <div className="skill" key={index}>
               <FontAwesomeIcon icon={skill.icon} size="2x" />
-              <h3>{skill.title}</h3>
+              <h3 >{skill.title}</h3>
               <div className="flex-chips">
                 {skill.labels.map((label, i) => (
                   <Chip key={i} className="chip" label={label} />
