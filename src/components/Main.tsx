@@ -28,8 +28,8 @@ function Main() {
         </div>
         <div className="content">
           <div className="social_icons">
-            <CustomTooltip title="usamafiaz012@gmail.com" arrow>
-              <a href="mailto:usamafiaz012@gmail.com" target="_blank" rel="noreferrer">
+            <CustomTooltip title="usamafiaz.contact@gmail.com" arrow>
+              <a href="mailto:usamafiaz.contact@gmail.com" target="_blank" rel="noreferrer">
                 <EmailIcon />
               </a>
             </CustomTooltip>
