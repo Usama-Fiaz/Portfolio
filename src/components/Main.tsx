@@ -28,16 +28,16 @@ function Main() {
         </div>
         <div className="content">
           <div className="social_icons">
-            <CustomTooltip title="usamafiaz.contact@gmail.com" arrow>
-              <a href="mailto:usamafiaz.contact@gmail.com" target="_blank" rel="noreferrer">
+            <CustomTooltip title="usamafiaz1104@gmail.com" arrow>
+              <a href="mailto:usamafiaz1104@gmail.com" target="_blank" rel="noreferrer">
                 <EmailIcon />
               </a>
             </CustomTooltip>
             <CustomTooltip title="https://github.com/Usama-Fiaz" arrow>
               <a href="https://github.com/Usama-Fiaz?tab=repositories" target="_blank" rel="noreferrer"><GitHubIcon /></a>
             </CustomTooltip>
-            <CustomTooltip title="https://www.linkedin.com/in/usama-fiaz-569908365/" arrow>
-              <a href="https://www.linkedin.com/in/usama-fiaz-569908365/" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
+            <CustomTooltip title="https://www.linkedin.com/in/muhammad-usama-fiaz-b1a070366/" arrow>
+              <a href="https://www.linkedin.com/in/muhammad-usama-fiaz-b1a070366/" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
             </CustomTooltip>
             <CustomTooltip title="+49-160-96-512513" arrow>
               <a href="tel:+4916096512513" target="_blank" rel="noreferrer" style={{ alignItems: 'center' }}>

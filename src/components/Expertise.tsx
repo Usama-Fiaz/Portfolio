@@ -116,7 +116,8 @@ import {
   faRocket,
   faCreditCard,
   faCloud,
-  faCogs
+  faCogs,
+  faUsers
 } from "@fortawesome/free-solid-svg-icons";
 
 import Chip from "@mui/material/Chip";
@@ -126,17 +127,17 @@ const skills = [
   {
     title: "Languages",
     icon: faCode,
-    labels: ["JavaScript", "TypeScript", "Python", "PHP", "HTML", "C++", "Java"],
+    labels: ["JavaScript", "TypeScript", "Python", "PHP", "HTML", "CSS", "C++", "Java"],
   },
   {
     title: "Front-End",
     icon: faReact,
-    labels: ["ReactJS", "Next.js", "Bootstrap", "TailwindCSS", "SCSS", "CSS", "MaterialUI (MUI)"],
+    labels: ["React", "Next.js", "Tailwind CSS", "Material-UI", "Bootstrap", "SASS", "CSS"],
   },
   {
     title: "Back-End",
     icon: faNodeJs,
-    labels: ["Node.js", "Express.js", "Django Rest Framework", "REST APIs", "GraphQL"],
+    labels: ["Node.js", "Express.js", "Django REST Framework", "GraphQL", "REST APIs", "FastAPI", "Flask API"],
   },
   {
     title: "State Management",
@@ -146,7 +147,12 @@ const skills = [
   {
     title: "Databases",
     icon: faDatabase,
-    labels: ["MySQL", "MongoDB", "MariaDB", "PostgreSQL", "Firebase"],
+    labels: ["MySQL", "MongoDB", "MariaDB", "PostgreSQL", "Firebase", "SQLite"],
+  },
+  {
+    title: "Developer Tools",
+    icon: faGitAlt,
+    labels: ["Git", "GitHub", "Postman", "Figma"],
   },
   {
     title: "Analytics / BI Tools",
@@ -159,9 +165,9 @@ const skills = [
     labels: ["Gemini API", "OpenAI", "Chatbot Integration"],
   },
   {
-    title: "Developer Tools",
-    icon: faGitAlt,
-    labels: ["Git", "Postman", "Figma"],
+    title: "Security & Auth",
+    icon: faShieldAlt,
+    labels: ["JWT", "OAuth","RBAC"],
   },
   {
     title: "Payment Integration",
@@ -174,16 +180,17 @@ const skills = [
     labels: ["Docker"],
   },
   {
-    title: "Security & Auth",
-    icon: faShieldAlt,
-    labels: ["JWT", "OAuth", "RBAC"],
-  },
-  {
     title: "Deployment / Hosting",
     icon: faCloud,
     labels: ["AWS", "cPanel", "Hostinger", "Vercel", "Netlify"],
-  },
+  }
+  // {
+  //   title: "Core Skills",
+  //   icon: faUsers,
+  //   labels: ["Team Collaboration", "Problem-Solving", "Cross-browser Compatibility"],
+  // },
 ];
+
 
 function Expertise() {
   return (
