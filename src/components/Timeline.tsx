@@ -6,6 +6,13 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
 
+const corefense: string[] = [
+  "Built operator dashboards that turn raw scan output into baseline-to-current security posture, highlighting improvements, regressions, and remediation focus.",
+  "Delivered console UI for vulnerability triage plus hardening coverage across binaries, kernel configuration, and filesystem posture, with delta and full-report views, search, and filters.",
+  "Kept the UI correct as MongoDB-backed scan documents and diff payloads evolved, tightening end-to-end accuracy for capabilities, permissions, and configuration drift.",
+  "Ran live product demos at Embedded World in Nuremberg, translating posture deltas and risk signals for technical and business stakeholders."
+];
+
 const plcgroup: string[] = [
   "Built scalable APIs with ReactJS, Node.js, and GraphQL for AXIN, an IoT platform, improving data interaction speed by 45% and enabling real-time dashboard updates.",
   "Optimized data-fetching speed by 50% through efficient GraphQL query design and implementation of best practices.",
@@ -36,6 +43,28 @@ function Timeline() {
       <div className="items-container">
         <h1>Experience</h1>
         <VerticalTimeline>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
+            contentArrowStyle={{ borderRight: '7px solid  white' }}
+            date="Feb 2026 – May 2026"
+            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            icon={<FontAwesomeIcon icon={faBriefcase} />}
+          >
+            <h3 className="vertical-timeline-element-title">Software Engineer (Working Student)</h3>
+            <h4 className="vertical-timeline-element-subtitle">Corefense</h4>
+            <p style={{ fontSize: "14px", fontStyle: "italic", marginTop: "-0.5rem" }}>
+              Berlin, Germany (Remote)
+            </p>
+            <p style={{ fontSize: "14px" }}>
+              Corefense builds security posture tooling that ingests host and binary scan data so teams can see hardening coverage, configuration drift, and vulnerability context without wading through raw reports.
+            </p>
+            {corefense.map((item, index) => (
+              <li key={index} style={{ marginBottom: '1rem', fontSize: '14px' }}>
+                {item}
+              </li>
+            ))}
+          </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}

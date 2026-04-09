@@ -51,8 +51,11 @@
 
 .about-section .image-wrapper {
     z-index: 2;
+    flex-shrink: 0;
     img {
-        width: 150px;
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
         border-radius: 50%;
     }
 }
@@ -150,6 +153,11 @@
         .about-section .image-wrapper {
             padding-left: 5%;
             width: 100%;
+
+            img {
+                width: 200px;
+                height: 200px;
+            }
         }
     }
 }
