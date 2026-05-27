@@ -14,7 +14,7 @@ View the [Demo](https://github.com/Usama-Fiaz?tab=repositories/).
 
 ## Features
 
-✅ Open source (free to use, no attribution required)  
+✅ Open source (free to use, no attribution required)   
 ✅ Responsive design & mobile-friendly  
 ✅ Supports both dark and light modes  
 ✅ Highly customizable multi-component layout  
