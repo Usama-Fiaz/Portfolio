@@ -127,17 +127,17 @@ const skills = [
   {
     title: "Languages",
     icon: faCode,
-    labels: ["JavaScript", "TypeScript", "Python", "PHP", "HTML", "CSS", "C++", "Java"],
+    labels: ["TypeScript", "JavaScript", "Python", "PHP", "HTML5", "CSS3", "C++", "Java"],
   },
   {
     title: "Front-End",
     icon: faReact,
-    labels: ["React", "Next.js", "Tailwind CSS", "Material-UI", "Bootstrap", "SASS", "CSS"],
+    labels: ["React", "Next.js", "Redux Toolkit", "Vite", "Recharts", "Tailwind CSS", "Material-UI", "Bootstrap", "SASS"],
   },
   {
     title: "Back-End",
     icon: faNodeJs,
-    labels: ["Node.js", "Express.js", "Django REST Framework", "GraphQL", "REST APIs", "FastAPI", "Flask API"],
+    labels: ["Node.js", "Express.js", "Django", "GraphQL", "REST APIs", "FastAPI", "OpenAPI", "Swagger", "Supabase"],
   },
   {
     title: "State Management",
@@ -147,7 +147,7 @@ const skills = [
   {
     title: "Databases",
     icon: faDatabase,
-    labels: ["MySQL", "MongoDB", "MariaDB", "PostgreSQL", "Firebase", "SQLite"],
+    labels: ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "MariaDB", "SQLite"],
   },
   {
     title: "Developer Tools",
@@ -160,14 +160,14 @@ const skills = [
     labels: ["Cube.js", "Power BI", "Data Visualization", "Dashboard Development", "KPI Tracking"],
   },
   {
-    title: "AI Tools / Integrations",
+    title: "AI & LLMs",
     icon: faBrain,
-    labels: ["Gemini API", "OpenAI", "Chatbot Integration"],
+    labels: ["OpenAI API", "RAG", "LangChain", "Embeddings", "Vector DBs", "Prompt Engineering", "Gemini API"],
   },
   {
     title: "Security & Auth",
     icon: faShieldAlt,
-    labels: ["JWT", "OAuth","RBAC"],
+    labels: ["JWT", "OAuth 2.0", "RBAC"],
   },
   {
     title: "Payment Integration",
@@ -177,12 +177,17 @@ const skills = [
   {
     title: "DevOps",
     icon: faDocker,
-    labels: ["Docker"],
+    labels: ["Docker", "AWS", "CI/CD", "GitHub Actions", "GitLab CI"],
   },
   {
     title: "Deployment / Hosting",
     icon: faCloud,
-    labels: ["AWS", "cPanel", "Hostinger", "Vercel", "Netlify"],
+    labels: ["AWS", "Railway", "Vercel", "Netlify", "cPanel", "Hostinger"],
+  },
+  {
+    title: "Methodologies",
+    icon: faUsers,
+    labels: ["Agile", "Scrum"],
   }
   // {
   //   title: "Core Skills",

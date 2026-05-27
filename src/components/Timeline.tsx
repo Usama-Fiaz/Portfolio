@@ -7,28 +7,20 @@ import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
 
 const corefense: string[] = [
-  "Built operator dashboards that turn raw scan output into baseline-to-current security posture, highlighting improvements, regressions, and remediation focus.",
-  "Delivered console UI for vulnerability triage plus hardening coverage across binaries, kernel configuration, and filesystem posture, with delta and full-report views, search, and filters.",
-  "Kept the UI correct as MongoDB-backed scan documents and diff payloads evolved, tightening end-to-end accuracy for capabilities, permissions, and configuration drift.",
-  "Ran live product demos at Embedded World in Nuremberg, translating posture deltas and risk signals for technical and business stakeholders."
+  "Built a multi-page firmware security dashboard in React and TypeScript with Redux, letting engineers compare compiler flag changes, filesystem mount drift, and kernel configs between any two builds across 6 dashboard routes.",
+  "Consumed REST scan diffs and transformed them client-side into a four-axis Recharts radar (compiler hardening, privilege exposure, insecure mounts, kernel hardening) with a normalized composite score per build.",
+  "Wrote a TypeScript fallback scoring layer that computed per-binary hardening ratios from compiler flags and aggregated privilege exposure counts when backend summaries were missing.",
 ];
 
 const plcgroup: string[] = [
-  "Built scalable APIs with ReactJS, Node.js, and GraphQL for AXIN, an IoT platform, improving data interaction speed by 45% and enabling real-time dashboard updates.",
-  "Optimized data-fetching speed by 50% through efficient GraphQL query design and implementation of best practices.",
-  "Improved database performance by optimizing PostgreSQL queries, reducing latency by 30% and enhancing real-time updates.",
-  "Incorporated Cube.js for advanced data modeling and dynamic dashboard development, increasing data visualization speed by 40%.",
-  "Boosted user satisfaction by 30% by leading UX enhancements and aligning frontend/backend integration through cross-functional collaboration.",
-  "Enhanced backend architecture and optimized real-time data delivery, reducing API response time by 35%.",
-  "Leveraged KPI tracking to monitor and visualize platform performance metrics efficiently."
+  "Built full-stack features on AxIn, an Industrial IoT platform serving telecom and utilities clients, using Next.js frontends and Node.js GraphQL APIs to surface real-time asset monitoring and energy analytics across multi-region deployments.",
+  "Optimized PostgreSQL queries with indexing and restructured joins, cutting API response times by over 30% on data-heavy IoT sensor pipelines.",
+  "Introduced a Cube.js analytics caching layer on the main operational dashboard, improving load times by 45% for clients monitoring hundreds of distributed assets daily.",
 ];
 const multisyntech: string[] = [
-  "Developed and deployed service-based projects, optimizing application performance and efficiency, improving load handling by 25% during peak traffic.",
-  "Delivered 3 full-stack web applications using React.js and Node.js, reducing maintenance overhead by 25% and scaling to handle 50k+ concurrent users.",
-  "Enhanced backend performance by 40% through optimized API integration and effective state management.",
-  "Implemented responsive design principles, improving user experience across multiple devices and increasing mobile user engagement by 30%.",
-  "Developed and deployed key features such as payment integration with Stripe/PayPal, improving transaction success rates by 15%.",
-  "Collaborated with teams to streamline deployment and incorporated comprehensive testing to ensure production-ready applications, reducing release cycle times by 20%."
+  "Led development of three full-stack platforms in React.js and Node.js with MySQL, serving 5,000+ multilingual users.",
+  "Built scalable UI component architecture with Material-UI and Tailwind CSS, ensuring design consistency and faster feature delivery across all platforms.",
+  "Implemented JWT-based authentication and third-party API integrations end-to-end, from Node.js backend logic to React frontend wiring.",
 ];
 const speedforce: string[] = [
   "Reduced page load time by 30% by implementing lazy loading and optimized rendering in responsive UIs built with React.js.",
@@ -47,7 +39,7 @@ function Timeline() {
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="Feb 2026 – May 2026"
+            date="Feb 2026 – Present"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
@@ -56,8 +48,8 @@ function Timeline() {
             <p style={{ fontSize: "14px", fontStyle: "italic", marginTop: "-0.5rem" }}>
               Berlin, Germany (Remote)
             </p>
-            <p style={{ fontSize: "14px" }}>
-              Corefense builds security posture tooling that ingests host and binary scan data so teams can see hardening coverage, configuration drift, and vulnerability context without wading through raw reports.
+            <p style={{ fontSize: "14px", fontStyle: "italic", color: "#1a66cc" }}>
+              Stack: React, TypeScript, Redux Toolkit, Vite, Recharts, REST APIs, Docker
             </p>
             {corefense.map((item, index) => (
               <li key={index} style={{ marginBottom: '1rem', fontSize: '14px' }}>
@@ -69,12 +61,18 @@ function Timeline() {
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="Jan 2024 – Mar 2025"
+            date="Jan 2024 – Apr 2025"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Software Engineer</h3>
+            <h3 className="vertical-timeline-element-title">Software Engineer (Full-time)</h3>
             <h4 className="vertical-timeline-element-subtitle">PLC Group</h4>
+            <p style={{ fontSize: "14px", fontStyle: "italic", marginTop: "-0.5rem" }}>
+              Ontario, Canada (Remote)
+            </p>
+            <p style={{ fontSize: "14px", fontStyle: "italic", color: "#1a66cc" }}>
+              Stack: Next.js, Node.js, PostgreSQL, GraphQL, TypeScript, Cube.js
+            </p>
             <span>
               <a
                 href="http://www.plcgroup.com"
@@ -86,9 +84,6 @@ function Timeline() {
                 <i>http://www.plcgroup.com</i>
               </a>
             </span>
-            <p style={{ fontSize: "14px" }}>
-            PLC Group is a privately held Canadian company specializing in IoT-driven infrastructure management solutions for telecom, data centers, and critical facilities. Headquartered in Mississauga, Ontario, and founded in 2014, the company offers integrated hardware and software platforms that deliver real-time monitoring, energy optimization, and predictive analytics.
-            </p>
             {plcgroup.map((item, index) => (
         <li key={index} style={{ marginBottom: '1rem', fontSize: '14px' }}>
           {item}
@@ -101,8 +96,14 @@ function Timeline() {
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Full Stack Developer</h3>
-            <h4 className="vertical-timeline-element-subtitle">MultiSyn Tech</h4>
+            <h3 className="vertical-timeline-element-title">Full Stack Developer (Full-time)</h3>
+            <h4 className="vertical-timeline-element-subtitle">Multi-syn Tech Pvt. Ltd</h4>
+            <p style={{ fontSize: "14px", fontStyle: "italic", marginTop: "-0.5rem" }}>
+              Islamabad, Pakistan
+            </p>
+            <p style={{ fontSize: "14px", fontStyle: "italic", color: "#1a66cc" }}>
+              Stack: React.js, Material-UI (MUI), Node.js, Express.js, MySQL, Tailwind CSS
+            </p>
             <span>
               <a
                 href="https://multisyn.tech"
@@ -114,9 +115,6 @@ function Timeline() {
                 <i>https://multisyn.tech</i>
               </a>
             </span>
-            <p style={{ fontSize: "14px" }}>
-              MultiSyn Tech is a software development company specializing in custom software, SaaS, and mobile app solutions.
-            </p>
             {multisyntech.map((item, index) => (
         <li key={index} style={{ marginBottom: '1rem', fontSize: '14px' }}>
           {item}

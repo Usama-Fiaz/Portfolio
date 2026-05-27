@@ -3,7 +3,7 @@ import {
   Main,
   Timeline,
   Expertise,
-  Project,
+  ProjectsSection,
   Contact,
   Navigation,
   Footer,
@@ -32,8 +32,8 @@ function App() {
         <FadeIn transitionDuration={700}>
             <Main/>
             <Expertise/>
+            <ProjectsSection/>
             <Timeline/>
-            <Project/>
             <Contact/>
         </FadeIn>
         <Footer />
