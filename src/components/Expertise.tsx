@@ -91,33 +91,18 @@
 
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faJs,
-  faReact,
-  faPython,
-  faPhp,
-  faHtml5,
-  faCss3Alt,
-  faJava,
-  faNodeJs,
-  faGitAlt,
-  faDocker,
-  faAws,
-  faFigma
-} from "@fortawesome/free-brands-svg-icons";
+import { faReact, faNodeJs, faGitAlt, faDocker } from "@fortawesome/free-brands-svg-icons";
 
 import {
   faDatabase,
   faCode,
   faChartLine,
   faBrain,
-  faKey,
   faShieldAlt,
-  faRocket,
   faCreditCard,
   faCloud,
   faCogs,
-  faUsers
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Chip from "@mui/material/Chip";
