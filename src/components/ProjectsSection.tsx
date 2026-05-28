@@ -2,12 +2,41 @@ import React, { useEffect, useState } from 'react';
 import '../assets/styles/ProjectsSection.scss';
 import '../assets/styles/Project.scss';
 import { Chip } from '@mui/material';
-import { GitHub, OpenInNew, PlayCircleOutline, BusinessCenter, Terminal } from '@mui/icons-material';
+import {
+  GitHub,
+  OpenInNew,
+  PlayCircleOutline,
+  BusinessCenter,
+  Terminal,
+  PhotoLibrary,
+  ChevronLeft,
+  ChevronRight,
+  Close,
+} from '@mui/icons-material';
 
-import corefenseImg from '../assets/images/professional-projects/corefense-dashboard.png';
-import axinImg from '../assets/images/professional-projects/axin-iot-platform.png';
-import concise5Img from '../assets/images/professional-projects/concise5-learning.png';
-import multisynImg from '../assets/images/professional-projects/multisyn-saas.png';
+import corefense1 from '../assets/images/professional-projects/Corefense/corefense-1.png';
+import corefense2 from '../assets/images/professional-projects/Corefense/corefense-2.png';
+import corefense3 from '../assets/images/professional-projects/Corefense/corefense-3.png';
+
+import axin1 from '../assets/images/professional-projects/AXIN/AXIN-1.png';
+import axin2 from '../assets/images/professional-projects/AXIN/AXIN-2.png';
+import axin3 from '../assets/images/professional-projects/AXIN/AXIN-3.png';
+import axin4 from '../assets/images/professional-projects/AXIN/AXIN-4.png';
+import axin5 from '../assets/images/professional-projects/AXIN/AXIN-5.png';
+import axin6 from '../assets/images/professional-projects/AXIN/AXIN-6.png';
+import axin7 from '../assets/images/professional-projects/AXIN/AXIN-7.png';
+import axin8 from '../assets/images/professional-projects/AXIN/AXIN-8.png';
+import axin9 from '../assets/images/professional-projects/AXIN/AXIN-9.png';
+import axin10 from '../assets/images/professional-projects/AXIN/AXIN-10.png';
+import axin11 from '../assets/images/professional-projects/AXIN/AXIN-11.png';
+
+import concise51 from '../assets/images/professional-projects/Concise5/concise5-1.png';
+import concise52 from '../assets/images/professional-projects/Concise5/concise5-2.png';
+import concise53 from '../assets/images/professional-projects/Concise5/concise5-3.png';
+
+import multisyn1 from '../assets/images/professional-projects/MultiSyn/multisyn-1.png';
+import multisyn2 from '../assets/images/professional-projects/MultiSyn/multisyn-2.png';
+import multisyn3 from '../assets/images/professional-projects/MultiSyn/multisyn-3.png';
 
 import mock03 from '../assets/images/projects/fitworld.png';
 import mock04 from '../assets/images/projects/Unsplash.png';
@@ -20,10 +49,21 @@ import mock10 from '../assets/images/projects/SmartFarmAI.png';
 
 type ProjectTab = 'professional' | 'personal';
 
-const professionalProjectsData = [
+type ProfessionalProject = {
+  title: string;
+  image: string;
+  gallery: string[];
+  project_link: string;
+  video_link: string;
+  description: string;
+  tech: string[];
+};
+
+const professionalProjectsData: ProfessionalProject[] = [
   {
     title: 'Corefense Security Posture Platform',
-    image: corefenseImg,
+    image: corefense1,
+    gallery: [corefense1, corefense2, corefense3],
     project_link: 'https://demo.corefense.io/dashboard',
     video_link: '',
     description:
@@ -32,16 +72,18 @@ const professionalProjectsData = [
   },
   {
     title: 'AXIN — Industrial IoT Analytics Platform',
-    image: axinImg,
+    image: axin1,
+    gallery: [axin1, axin2, axin3, axin4, axin5, axin6, axin7, axin8, axin9, axin10, axin11],
     project_link: 'https://axin.plcgroup.io/login',
-    video_link: '',
+    video_link: 'https://drive.google.com/file/d/1K4krZbFh_bti_zsQGM6xa-3vl7BMyksX/view?usp=drive_link',
     description:
       'Built multilingual dashboards in Next.js with Node.js GraphQL APIs for real-time asset monitoring across telecom and utility infrastructure. Optimized PostgreSQL query performance and introduced Cube.js caching, reducing dashboard load times by 45% for enterprise clients.',
     tech: ['Next.js', 'Node.js', 'PostgreSQL', 'GraphQL', 'TypeScript', 'Cube.js'],
   },
   {
     title: 'Concise5 — Learning Platform',
-    image: concise5Img,
+    image: concise51,
+    gallery: [concise51, concise52, concise53],
     project_link: '',
     video_link: '',
     description:
@@ -50,7 +92,8 @@ const professionalProjectsData = [
   },
   {
     title: 'Multi-Syn Tech SaaS Platforms',
-    image: multisynImg,
+    image: multisyn1,
+    gallery: [multisyn1, multisyn2, multisyn3],
     project_link: '',
     video_link: '',
     description:
@@ -138,6 +181,8 @@ function isValidLink(link?: string) {
 
 function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<ProjectTab>('professional');
+  const [selectedProject, setSelectedProject] = useState<ProfessionalProject | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
   useEffect(() => {
     const syncTabFromHash = () => {
@@ -156,8 +201,51 @@ function ProjectsSection() {
 
   const selectTab = (tab: ProjectTab) => {
     setActiveTab(tab);
+    setSelectedProject(null);
+    setSelectedImageIndex(0);
     window.history.replaceState(null, '', tab === 'professional' ? '#professional-projects' : '#projects');
   };
+
+  const openGallery = (project: ProfessionalProject) => {
+    setSelectedProject(project);
+    setSelectedImageIndex(0);
+  };
+
+  const closeGallery = () => {
+    setSelectedProject(null);
+    setSelectedImageIndex(0);
+  };
+
+  const showPrev = () => {
+    if (!selectedProject) return;
+    setSelectedImageIndex((current) =>
+      current === 0 ? selectedProject.gallery.length - 1 : current - 1
+    );
+  };
+
+  const showNext = () => {
+    if (!selectedProject) return;
+    setSelectedImageIndex((current) => (current + 1) % selectedProject.gallery.length);
+  };
+
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') closeGallery();
+      if (event.key === 'ArrowLeft') {
+        setSelectedImageIndex((current) =>
+          current === 0 ? selectedProject.gallery.length - 1 : current - 1
+        );
+      }
+      if (event.key === 'ArrowRight') {
+        setSelectedImageIndex((current) => (current + 1) % selectedProject.gallery.length);
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [selectedProject]);
 
   return (
     <div className="projects-hub projects-container" id="projects">
@@ -198,17 +286,28 @@ function ProjectsSection() {
           <div className="projects-grid">
             {professionalProjectsData.map((project, index) => (
               <div key={index} className="project project-card-glass">
-                <img src={project.image} className="zoom" alt={project.title} width="100%" />
+                <button
+                  type="button"
+                  className="gallery-cover-button"
+                  onClick={() => openGallery(project)}
+                  aria-label={`Open ${project.title} gallery`}
+                >
+                  <img src={project.image} className="zoom" alt={project.title} width="100%" />
+                  <span className="gallery-hint">
+                    <PhotoLibrary fontSize="small" /> Open Gallery ({project.gallery.length})
+                  </span>
+                </button>
                 <h2>{project.title}</h2>
+                <p className="gallery-meta">Click image to browse screenshots</p>
                 <div className="project-links">
                   {isValidLink(project.project_link) && (
                     <a href={project.project_link} className="project-link" target="_blank" rel="noreferrer">
-                      <OpenInNew fontSize="small" /> View Project
+                      <OpenInNew fontSize="small" /> Public URL
                     </a>
                   )}
                   {isValidLink(project.video_link) && (
                     <a href={project.video_link} className="project-link" target="_blank" rel="noreferrer">
-                      <PlayCircleOutline fontSize="small" /> Watch Demo
+                      <PlayCircleOutline fontSize="small" /> Demo Video
                     </a>
                   )}
                 </div>
@@ -254,6 +353,64 @@ function ProjectsSection() {
           </div>
         )}
       </div>
+
+      {selectedProject && (
+        <div className="gallery-modal-overlay" role="dialog" aria-modal="true" aria-label="Project gallery">
+          <div className="gallery-modal">
+            <button type="button" className="gallery-close" onClick={closeGallery} aria-label="Close gallery">
+              <Close />
+            </button>
+
+            <div className="gallery-top">
+              <h3>{selectedProject.title}</h3>
+              <p>
+                Screenshot {selectedImageIndex + 1} of {selectedProject.gallery.length}
+              </p>
+            </div>
+
+            <div className="gallery-main">
+              <button type="button" className="gallery-nav prev" onClick={showPrev} aria-label="Previous image">
+                <ChevronLeft />
+              </button>
+              <img
+                src={selectedProject.gallery[selectedImageIndex]}
+                alt={`${selectedProject.title} screenshot ${selectedImageIndex + 1}`}
+                className="gallery-main-image"
+              />
+              <button type="button" className="gallery-nav next" onClick={showNext} aria-label="Next image">
+                <ChevronRight />
+              </button>
+            </div>
+
+            <div className="gallery-thumbs">
+              {selectedProject.gallery.map((image, index) => (
+                <button
+                  type="button"
+                  key={image}
+                  className={`thumb ${index === selectedImageIndex ? 'active' : ''}`}
+                  onClick={() => setSelectedImageIndex(index)}
+                  aria-label={`Go to screenshot ${index + 1}`}
+                >
+                  <img src={image} alt={`${selectedProject.title} thumb ${index + 1}`} />
+                </button>
+              ))}
+            </div>
+
+            <div className="gallery-actions">
+              {isValidLink(selectedProject.project_link) && (
+                <a href={selectedProject.project_link} target="_blank" rel="noreferrer" className="project-link">
+                  <OpenInNew fontSize="small" /> Open Public URL
+                </a>
+              )}
+              {isValidLink(selectedProject.video_link) && (
+                <a href={selectedProject.video_link} target="_blank" rel="noreferrer" className="project-link">
+                  <PlayCircleOutline fontSize="small" /> Watch Demo Video
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
