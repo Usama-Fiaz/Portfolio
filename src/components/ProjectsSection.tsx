@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../assets/styles/ProjectsSection.scss';
 import '../assets/styles/Project.scss';
 import { Chip } from '@mui/material';
@@ -30,13 +30,14 @@ import axin9 from '../assets/images/professional-projects/AXIN/AXIN-9.png';
 import axin10 from '../assets/images/professional-projects/AXIN/AXIN-10.png';
 import axin11 from '../assets/images/professional-projects/AXIN/AXIN-11.png';
 
-import concise51 from '../assets/images/professional-projects/Concise5/concise5-1.png';
-import concise52 from '../assets/images/professional-projects/Concise5/concise5-2.png';
-import concise53 from '../assets/images/professional-projects/Concise5/concise5-3.png';
+import concise51 from '../assets/images/professional-projects/Concise5/Concise5-1.png';
+import concise52 from '../assets/images/professional-projects/Concise5/Concise5-2.png';
+import concise53 from '../assets/images/professional-projects/Concise5/Concise5-3.png';
+import concise54 from '../assets/images/professional-projects/Concise5/Concise5-4.png';
 
-import multisyn1 from '../assets/images/professional-projects/MultiSyn/multisyn-1.png';
-import multisyn2 from '../assets/images/professional-projects/MultiSyn/multisyn-2.png';
-import multisyn3 from '../assets/images/professional-projects/MultiSyn/multisyn-3.png';
+import multisyn1 from '../assets/images/professional-projects/MultiSyn/Multisyn-1.png';
+import multisyn2 from '../assets/images/professional-projects/MultiSyn/Multisyn-2.png';
+import multisyn3 from '../assets/images/professional-projects/MultiSyn/Multisyn-3.png';
 
 import mock03 from '../assets/images/projects/fitworld.png';
 import mock04 from '../assets/images/projects/Unsplash.png';
@@ -50,6 +51,7 @@ import mock10 from '../assets/images/projects/SmartFarmAI.png';
 type ProjectTab = 'professional' | 'personal';
 
 type ProfessionalProject = {
+  id: string;
   title: string;
   image: string;
   gallery: string[];
@@ -61,6 +63,7 @@ type ProfessionalProject = {
 
 const professionalProjectsData: ProfessionalProject[] = [
   {
+    id: 'corefense-security-posture-platform',
     title: 'Corefense Security Posture Platform',
     image: corefense1,
     gallery: [corefense1, corefense2, corefense3],
@@ -71,6 +74,7 @@ const professionalProjectsData: ProfessionalProject[] = [
     tech: ['React', 'TypeScript', 'Redux Toolkit', 'REST APIs', 'Recharts', 'Docker', 'Vite'],
   },
   {
+    id: 'axin-industrial-iot-analytics-platform',
     title: 'AXIN — Industrial IoT Analytics Platform',
     image: axin1,
     gallery: [axin1, axin2, axin3, axin4, axin5, axin6, axin7, axin8, axin9, axin10, axin11],
@@ -81,20 +85,22 @@ const professionalProjectsData: ProfessionalProject[] = [
     tech: ['Next.js', 'Node.js', 'PostgreSQL', 'GraphQL', 'TypeScript', 'Cube.js'],
   },
   {
+    id: 'concise5-learning-platform',
     title: 'Concise5 — Learning Platform',
     image: concise51,
-    gallery: [concise51, concise52, concise53],
-    project_link: '',
-    video_link: '',
+    gallery: [concise51, concise52, concise53, concise54],
+    project_link: 'https://admin.concise5.com/login',
+    video_link: 'https://drive.google.com/file/d/1qnEnD6jmNADDin3BOfDXux1qnkT_gtSA/view?usp=sharing',
     description:
       'Developed a full-stack learning platform with a Next.js frontend and Node.js backend deployed on Railway, backed by Supabase and PostgreSQL. Built API-driven content management for 1,000+ tutorials and integrated Google Cloud Translation API for real-time multilingual support.',
     tech: ['Next.js', 'Node.js', 'Supabase', 'PostgreSQL', 'Railway', 'TypeScript'],
   },
   {
+    id: 'multisyn-tech-saas-platforms',
     title: 'Multi-Syn Tech SaaS Platforms',
     image: multisyn1,
     gallery: [multisyn1, multisyn2, multisyn3],
-    project_link: '',
+    project_link: 'https://multisyn.tech/',
     video_link: '',
     description:
       'Built three full-stack platforms from scratch in React.js and Node.js with MySQL, reaching 5,000+ active users across multiple languages. Standardised UI across all products using Material-UI and Tailwind CSS for consistent cross-device experience.',
@@ -183,6 +189,11 @@ function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<ProjectTab>('professional');
   const [selectedProject, setSelectedProject] = useState<ProfessionalProject | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [thumbStartIndex, setThumbStartIndex] = useState<number>(0);
+  const [visibleThumbs, setVisibleThumbs] = useState<number>(6);
+  const [slideDirection, setSlideDirection] = useState<'next' | 'prev'>('next');
+  const [thumbSlideDirection, setThumbSlideDirection] = useState<'next' | 'prev'>('next');
+  const thumbsContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const syncTabFromHash = () => {
@@ -191,6 +202,17 @@ function ProjectsSection() {
         setActiveTab('personal');
       } else if (hash === 'professional-projects') {
         setActiveTab('professional');
+      } else if (hash.startsWith('project-')) {
+        const projectId = hash.replace('project-', '');
+        const project = professionalProjectsData.find((item) => item.id === projectId);
+        if (project) {
+          setActiveTab('professional');
+          setSelectedProject(project);
+          setSelectedImageIndex(0);
+          setThumbStartIndex(0);
+          setSlideDirection('next');
+          setThumbSlideDirection('next');
+        }
       }
     };
 
@@ -209,15 +231,26 @@ function ProjectsSection() {
   const openGallery = (project: ProfessionalProject) => {
     setSelectedProject(project);
     setSelectedImageIndex(0);
+    setThumbStartIndex(0);
+    setSlideDirection('next');
+    setThumbSlideDirection('next');
+    window.history.replaceState(null, '', `#project-${project.id}`);
   };
 
   const closeGallery = () => {
     setSelectedProject(null);
     setSelectedImageIndex(0);
+    setThumbStartIndex(0);
+    setSlideDirection('next');
+    setThumbSlideDirection('next');
+    if (window.location.hash.startsWith('#project-')) {
+      window.history.replaceState(null, '', '#professional-projects');
+    }
   };
 
   const showPrev = () => {
     if (!selectedProject) return;
+    setSlideDirection('prev');
     setSelectedImageIndex((current) =>
       current === 0 ? selectedProject.gallery.length - 1 : current - 1
     );
@@ -225,6 +258,7 @@ function ProjectsSection() {
 
   const showNext = () => {
     if (!selectedProject) return;
+    setSlideDirection('next');
     setSelectedImageIndex((current) => (current + 1) % selectedProject.gallery.length);
   };
 
@@ -234,11 +268,13 @@ function ProjectsSection() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') closeGallery();
       if (event.key === 'ArrowLeft') {
+        setSlideDirection('prev');
         setSelectedImageIndex((current) =>
           current === 0 ? selectedProject.gallery.length - 1 : current - 1
         );
       }
       if (event.key === 'ArrowRight') {
+        setSlideDirection('next');
         setSelectedImageIndex((current) => (current + 1) % selectedProject.gallery.length);
       }
     };
@@ -246,6 +282,48 @@ function ProjectsSection() {
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [selectedProject]);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+    setThumbStartIndex((current) => {
+      if (selectedImageIndex < current) return selectedImageIndex;
+      if (selectedImageIndex >= current + visibleThumbs) {
+        return selectedImageIndex - visibleThumbs + 1;
+      }
+      return current;
+    });
+  }, [selectedImageIndex, selectedProject, visibleThumbs]);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const updateVisibleThumbs = () => {
+      const containerWidth = thumbsContainerRef.current?.clientWidth ?? 0;
+      if (!containerWidth) return;
+      const estimatedThumbWidth = 77;
+      const computed = Math.max(1, Math.floor(containerWidth / estimatedThumbWidth));
+      // Keep page size predictable while still filling available width.
+      setVisibleThumbs(Math.min(6, computed, selectedProject.gallery.length));
+    };
+
+    updateVisibleThumbs();
+    window.addEventListener('resize', updateVisibleThumbs);
+    return () => window.removeEventListener('resize', updateVisibleThumbs);
+  }, [selectedProject]);
+
+  const shiftThumbsLeft = () => {
+    setThumbSlideDirection('prev');
+    setThumbStartIndex((current) => Math.max(0, current - visibleThumbs));
+  };
+
+  const shiftThumbsRight = () => {
+    if (!selectedProject) return;
+    const maxStart = Math.max(0, selectedProject.gallery.length - visibleThumbs);
+    setThumbSlideDirection('next');
+    setThumbStartIndex((current) =>
+      Math.min(maxStart, current + visibleThumbs)
+    );
+  };
 
   return (
     <div className="projects-hub projects-container" id="projects">
@@ -285,7 +363,7 @@ function ProjectsSection() {
         {activeTab === 'professional' ? (
           <div className="projects-grid">
             {professionalProjectsData.map((project, index) => (
-              <div key={index} className="project project-card-glass">
+              <div key={index} className="project project-card-glass" id={`project-${project.id}`}>
                 <button
                   type="button"
                   className="gallery-cover-button"
@@ -298,7 +376,6 @@ function ProjectsSection() {
                   </span>
                 </button>
                 <h2>{project.title}</h2>
-                <p className="gallery-meta">Click image to browse screenshots</p>
                 <div className="project-links">
                   {isValidLink(project.project_link) && (
                     <a href={project.project_link} className="project-link" target="_blank" rel="noreferrer">
@@ -355,8 +432,14 @@ function ProjectsSection() {
       </div>
 
       {selectedProject && (
-        <div className="gallery-modal-overlay" role="dialog" aria-modal="true" aria-label="Project gallery">
-          <div className="gallery-modal">
+        <div
+          className="gallery-modal-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project gallery"
+          onClick={closeGallery}
+        >
+          <div className="gallery-modal" onClick={(event) => event.stopPropagation()}>
             <button type="button" className="gallery-close" onClick={closeGallery} aria-label="Close gallery">
               <Close />
             </button>
@@ -364,7 +447,7 @@ function ProjectsSection() {
             <div className="gallery-top">
               <h3>{selectedProject.title}</h3>
               <p>
-                Screenshot {selectedImageIndex + 1} of {selectedProject.gallery.length}
+                Demo frame {selectedImageIndex + 1} of {selectedProject.gallery.length}
               </p>
             </div>
 
@@ -373,37 +456,77 @@ function ProjectsSection() {
                 <ChevronLeft />
               </button>
               <img
+                key={`${selectedProject.id}-${selectedImageIndex}`}
                 src={selectedProject.gallery[selectedImageIndex]}
                 alt={`${selectedProject.title} screenshot ${selectedImageIndex + 1}`}
-                className="gallery-main-image"
+                className={`gallery-main-image ${slideDirection === 'next' ? 'slide-in-next' : 'slide-in-prev'}`}
               />
+              <span className="main-image-index-badge">
+                {selectedImageIndex + 1} / {selectedProject.gallery.length}
+              </span>
               <button type="button" className="gallery-nav next" onClick={showNext} aria-label="Next image">
                 <ChevronRight />
               </button>
             </div>
 
-            <div className="gallery-thumbs">
-              {selectedProject.gallery.map((image, index) => (
-                <button
-                  type="button"
-                  key={image}
-                  className={`thumb ${index === selectedImageIndex ? 'active' : ''}`}
-                  onClick={() => setSelectedImageIndex(index)}
-                  aria-label={`Go to screenshot ${index + 1}`}
-                >
-                  <img src={image} alt={`${selectedProject.title} thumb ${index + 1}`} />
-                </button>
-              ))}
+            <div className="gallery-thumbs-carousel">
+              <button
+                type="button"
+                className="thumb-nav"
+                onClick={shiftThumbsLeft}
+                disabled={thumbStartIndex === 0}
+                aria-label="Previous thumbnails"
+              >
+                <ChevronLeft />
+              </button>
+              <div
+                key={`${thumbStartIndex}-${thumbSlideDirection}`}
+                className={`gallery-thumbs ${thumbSlideDirection === 'next' ? 'thumb-window-next' : 'thumb-window-prev'}`}
+                ref={thumbsContainerRef}
+              >
+                {selectedProject.gallery
+                  .slice(thumbStartIndex, thumbStartIndex + visibleThumbs)
+                  .map((image, offset) => {
+                    const index = thumbStartIndex + offset;
+                    return (
+                      <button
+                        type="button"
+                        key={image}
+                        className={`thumb ${index === selectedImageIndex ? 'active' : ''}`}
+                        onClick={() => {
+                          setSlideDirection(index >= selectedImageIndex ? 'next' : 'prev');
+                          setSelectedImageIndex(index);
+                        }}
+                        aria-label={`Go to screenshot ${index + 1}`}
+                      >
+                        <img src={image} alt={`${selectedProject.title} thumb ${index + 1}`} />
+                        <span className="thumb-index-badge">{index + 1}</span>
+                      </button>
+                    );
+                  })}
+              </div>
+              <button
+                type="button"
+                className="thumb-nav"
+                onClick={shiftThumbsRight}
+                disabled={
+                  selectedProject.gallery.length <= visibleThumbs ||
+                  thumbStartIndex >= selectedProject.gallery.length - visibleThumbs
+                }
+                aria-label="Next thumbnails"
+              >
+                <ChevronRight />
+              </button>
             </div>
 
             <div className="gallery-actions">
               {isValidLink(selectedProject.project_link) && (
-                <a href={selectedProject.project_link} target="_blank" rel="noreferrer" className="project-link">
+                <a href={selectedProject.project_link} target="_blank" rel="noreferrer" className="project-cta-link">
                   <OpenInNew fontSize="small" /> Open Public URL
                 </a>
               )}
               {isValidLink(selectedProject.video_link) && (
-                <a href={selectedProject.video_link} target="_blank" rel="noreferrer" className="project-link">
+                <a href={selectedProject.video_link} target="_blank" rel="noreferrer" className="project-cta-link">
                   <PlayCircleOutline fontSize="small" /> Watch Demo Video
                 </a>
               )}

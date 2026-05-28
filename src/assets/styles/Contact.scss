@@ -1,48 +1,233 @@
-.contact_wrapper svg {
-  font-size: 1em;
-  vertical-align: middle;
-  margin-right: 5px;
+.contact-section {
+  padding: 5% 10% 2.5%;
 }
 
-.contact-form {
-  padding-top: 20px;
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-  button {
-    float: right;
-    background-color: white;
-    color: #050f0b;
+.contact-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+
+  h1 {
+    margin: 0 0 0.5rem;
   }
 
-  button:hover {
-    background-color: #5000ca;
-    color: white;
-  }
-
-  fieldset {
-    background-color: white;
+  p {
+    margin: 0;
+    opacity: 0.75;
+    max-width: 620px;
+    margin-inline: auto;
   }
 }
 
-label {
-  font-size: 1.2rem;
-  font-family: 'DomaineDispNar-Medium', sans-serif;
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
 }
 
-.form-flex {
+.contact-info-card,
+.contact-form-card {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.25rem 1.35rem;
+}
+
+.contact-info-card {
+  h2,
+  .contact-form-card h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0.45rem 0 1rem;
+    opacity: 0.75;
+    font-size: 0.95rem;
+  }
+}
+
+.contact-channel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 15px;
-  padding-bottom: 15px;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
-.form-flex .MuiFormControl-root {
-  width: 100%;
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    border-color: rgba(160, 100, 255, 0.35);
+    background: rgba(80, 0, 202, 0.1);
+    transform: translateY(-1px);
+  }
 }
 
-form {
-  width: 100% !important;
+.contact-channel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(80, 0, 202, 0.2);
+  color: #d8c4ff;
+
+  svg {
+    font-size: 1.05rem;
+  }
 }
 
-.body-form {
-  width: 100% !important;
-  margin-bottom: 15px !important;
+.contact-channel-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-channel-label {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.contact-channel-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-form-card {
+  h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  > p {
+    margin: 0.45rem 0 1rem;
+    opacity: 0.75;
+    font-size: 0.95rem;
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.contact-form-actions {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.contact-submit-btn {
+  border-radius: 999px !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  padding: 0.58rem 1.2rem !important;
+  background: linear-gradient(135deg, rgba(80, 0, 202, 0.9), rgba(123, 84, 255, 0.75)) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(80, 0, 202, 0.35);
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(96, 20, 220, 0.95), rgba(140, 100, 255, 0.85)) !important;
+    box-shadow: 0 10px 28px rgba(80, 0, 202, 0.45);
+  }
+}
+
+.contact-submit-note {
+  margin: 0;
+  font-size: 0.86rem;
+  opacity: 0.75;
+}
+
+.light-mode {
+  .contact-form-card {
+    .MuiOutlinedInput-root {
+      background-color: rgba(0, 0, 0, 0.02);
+
+      fieldset {
+        border-color: rgba(0, 0, 0, 0.18);
+      }
+
+      &:hover fieldset {
+        border-color: rgba(80, 0, 202, 0.35);
+      }
+
+      &.Mui-focused fieldset {
+        border-color: rgba(80, 0, 202, 0.55);
+      }
+    }
+
+    .MuiInputLabel-root {
+      color: rgba(13, 17, 22, 0.65);
+    }
+
+    .MuiInputLabel-root.Mui-focused {
+      color: #5000ca;
+    }
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  }
+
+  .contact-channel {
+    border-color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.02);
+
+    &:hover {
+      border-color: rgba(80, 0, 202, 0.3);
+      background: rgba(80, 0, 202, 0.06);
+    }
+  }
+
+  .contact-channel-icon {
+    background: rgba(80, 0, 202, 0.12);
+    color: #5000ca;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 5%;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-submit-btn {
+    width: 100%;
+  }
 }
