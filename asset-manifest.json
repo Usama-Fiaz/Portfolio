@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.c7bc17a4.css",
-    "main.js": "/Portfolio/static/js/main.81e1d058.js",
+    "main.css": "/Portfolio/static/css/main.7a15bca2.css",
+    "main.js": "/Portfolio/static/js/main.d2015f53.js",
     "static/js/453.2d2808b9.chunk.js": "/Portfolio/static/js/453.2d2808b9.chunk.js",
     "static/media/sportsclub.png": "/Portfolio/static/media/sportsclub.c69bd29ff80d24d7251c.png",
     "static/media/Shipping-Logistic.png": "/Portfolio/static/media/Shipping-Logistic.9830af39ae6590e2952f.png",
+    "static/media/corefense-dashboard.png": "/Portfolio/static/media/corefense-dashboard.39d33019f6531748c1ce.png",
     "static/media/SmartFarmAI.png": "/Portfolio/static/media/SmartFarmAI.dbb2d4aecf263df94128.png",
     "static/media/Unsplash.png": "/Portfolio/static/media/Unsplash.02a14438426ef5f55c71.png",
     "static/media/mvs.png": "/Portfolio/static/media/mvs.81adadfd3075012cef96.png",
@@ -13,14 +14,17 @@
     "static/media/BrilliantPro.png": "/Portfolio/static/media/BrilliantPro.93299cd312a31e088fbd.png",
     "static/media/bg-light.png": "/Portfolio/static/media/bg-light.bac0efb485244a522981.png",
     "static/media/bg-dark.png": "/Portfolio/static/media/bg-dark.f420c6b8458af72de935.png",
+    "static/media/axin-iot-platform.png": "/Portfolio/static/media/axin-iot-platform.ea7fc74ad7108df83bbd.png",
+    "static/media/concise5-learning.png": "/Portfolio/static/media/concise5-learning.ea7fc74ad7108df83bbd.png",
+    "static/media/multisyn-saas.png": "/Portfolio/static/media/multisyn-saas.ea7fc74ad7108df83bbd.png",
     "static/media/tradebot.jpeg": "/Portfolio/static/media/tradebot.1ab53e10cba278008d4b.jpeg",
     "index.html": "/Portfolio/index.html",
-    "main.c7bc17a4.css.map": "/Portfolio/static/css/main.c7bc17a4.css.map",
-    "main.81e1d058.js.map": "/Portfolio/static/js/main.81e1d058.js.map",
+    "main.7a15bca2.css.map": "/Portfolio/static/css/main.7a15bca2.css.map",
+    "main.d2015f53.js.map": "/Portfolio/static/js/main.d2015f53.js.map",
     "453.2d2808b9.chunk.js.map": "/Portfolio/static/js/453.2d2808b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7bc17a4.css",
-    "static/js/main.81e1d058.js"
+    "static/css/main.7a15bca2.css",
+    "static/js/main.d2015f53.js"
   ]
 }
