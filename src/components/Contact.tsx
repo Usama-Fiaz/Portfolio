@@ -107,13 +107,13 @@ function Contact() {
       <div className="contact-container">
         <header className="contact-header">
           <h1>Get in Touch</h1>
-          <p>Open to working-student and full-time opportunities across Europe.</p>
+          <p>Open to working student and full time opportunities across Europe.</p>
         </header>
 
         <div className="contact-grid">
           <aside className="contact-info-card">
             <h2>Direct Contact</h2>
-            <p>Prefer a quick reach-out? Use any channel below.</p>
+            <p>Prefer a quick reach out? Use any channel below.</p>
             <ul className="contact-channel-list">
               {contactLinks.map((item) => (
                 <li key={item.label}>

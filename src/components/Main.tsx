@@ -48,7 +48,7 @@ function Main() {
           </div>
           <h1>Usama Fiaz</h1>
           <p> Software Engineer | Full Stack Developer</p>
-          <p style={{ fontSize: "16px" }}>I'm a Full-Stack Software Engineer with 2.2+ years of experience building scalable web applications with React, Next.js, TypeScript, Node.js, GraphQL, and PostgreSQL. Currently pursuing a Master of Computer Science at Universität Passau, Germany, I focus on performance, clean architecture, and shipping production-ready features—from firmware security dashboards and Industrial IoT analytics to multilingual SaaS platforms.</p>
+          <p style={{ fontSize: "16px" }}>I'm a Full Stack Software Engineer with 2.6+ years of experience building scalable web applications with React, Next.js, TypeScript, Node.js, GraphQL, and PostgreSQL. Currently pursuing a Master of Computer Science at Universität Passau, Germany, I focus on performance, clean architecture, and shipping production ready features from firmware security dashboards and Industrial IoT analytics to multilingual SaaS platforms.</p>
         </div>
       </div>
     </div>

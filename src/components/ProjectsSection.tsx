@@ -70,29 +70,29 @@ const professionalProjectsData: ProfessionalProject[] = [
     project_link: 'https://demo.corefense.io/dashboard',
     video_link: '',
     description:
-      'Built a firmware security dashboard in React and TypeScript where engineers compare two builds side-by-side across binary, filesystem, and kernel hardening views. Implemented a client-side scoring pipeline using Recharts and custom TypeScript metrics to produce a normalized composite posture score per build.',
+      'Built a firmware security dashboard in React and TypeScript where engineers compare two builds side by side across binary, filesystem, and kernel hardening views. Implemented a client side scoring pipeline using Recharts and custom TypeScript metrics to produce a normalized composite posture score per build.',
     tech: ['React', 'TypeScript', 'Redux Toolkit', 'REST APIs', 'Recharts', 'Docker', 'Vite'],
   },
   {
     id: 'axin-industrial-iot-analytics-platform',
-    title: 'AXIN — Industrial IoT Analytics Platform',
+    title: 'AXIN, Industrial IoT Analytics Platform',
     image: axin1,
     gallery: [axin1, axin2, axin3, axin4, axin5, axin6, axin7, axin8, axin9, axin10, axin11],
     project_link: 'https://axin.plcgroup.io/login',
     video_link: 'https://drive.google.com/file/d/1K4krZbFh_bti_zsQGM6xa-3vl7BMyksX/view?usp=drive_link',
     description:
-      'Built multilingual dashboards in Next.js with Node.js GraphQL APIs for real-time asset monitoring across telecom and utility infrastructure. Optimized PostgreSQL query performance and introduced Cube.js caching, reducing dashboard load times by 45% for enterprise clients.',
+      'Built multilingual dashboards in Next.js with Node.js GraphQL APIs for real time asset monitoring across telecom and utility infrastructure. Optimized PostgreSQL query performance and introduced Cube.js caching, reducing dashboard load times by 45% for enterprise clients.',
     tech: ['Next.js', 'Node.js', 'PostgreSQL', 'GraphQL', 'TypeScript', 'Cube.js'],
   },
   {
     id: 'concise5-learning-platform',
-    title: 'Concise5 — Learning Platform',
+    title: 'Concise5, Learning Platform',
     image: concise51,
     gallery: [concise51, concise52, concise53, concise54],
     project_link: 'https://admin.concise5.com/login',
     video_link: 'https://drive.google.com/file/d/1qnEnD6jmNADDin3BOfDXux1qnkT_gtSA/view?usp=sharing',
     description:
-      'Developed a full-stack learning platform with a Next.js frontend and Node.js backend deployed on Railway, backed by Supabase and PostgreSQL. Built API-driven content management for 1,000+ tutorials and integrated Google Cloud Translation API for real-time multilingual support.',
+      'Developed a full stack learning platform with a Next.js frontend and Node.js backend deployed on Railway, backed by Supabase and PostgreSQL. Built API driven content management for 1,000+ tutorials and integrated Google Cloud Translation API for real time multilingual support.',
     tech: ['Next.js', 'Node.js', 'Supabase', 'PostgreSQL', 'Railway', 'TypeScript'],
   },
   {
@@ -103,7 +103,7 @@ const professionalProjectsData: ProfessionalProject[] = [
     project_link: 'https://multisyn.tech/',
     video_link: '',
     description:
-      'Built three full-stack platforms from scratch in React.js and Node.js with MySQL, reaching 5,000+ active users across multiple languages. Standardised UI across all products using Material-UI and Tailwind CSS for consistent cross-device experience.',
+      'Built three full stack platforms from scratch in React.js and Node.js with MySQL, reaching 5,000+ active users across multiple languages. Standardised UI across all products using Material-UI and Tailwind CSS for consistent cross device experience.',
     tech: ['React.js', 'Material-UI', 'Node.js', 'Express.js', 'MySQL', 'Tailwind CSS'],
   },
 ];
